@@ -1,7 +1,8 @@
-"""
-This is the file for the Score class.
-"""
+# File for score class
+# - Increases player score 
+# - Draws scores
 import pygame
+
 
 class Score:
     def __init__(self, font):

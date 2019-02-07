@@ -1,8 +1,9 @@
-"""
-This is the file for our Bat class. The bats are the two moving rectangles either side of the screen that are controlled
-by the players.
-"""
+# File for paddle (bat) class and control scheme
+# - Draws bats
+# - Handles keystrokes
+# - Updates position
 import pygame
+
 
 class Bat:
     def __init__(self, top_left_corner, width, height, control_scheme):
