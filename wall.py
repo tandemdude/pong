@@ -1,6 +1,5 @@
-'''
-Wall Class file
-'''
+# Wall class file
+# - Draws walls
 import pygame
 
 

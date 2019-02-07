@@ -1,11 +1,15 @@
-"""
-This is the file for the game class and the file to run to play the game
-"""
+# File for game class
+# - Main class, runs game
+# - Calls bats, ball, walls draw
+# - Game clock
+# - Handles scoring
+# - Updates display
+# - Main game loop
 import pygame
-from wall import Wall
-from bat import Bat, ControlScheme
-from ball import Ball
-from score import Score
+from wall import Wall  # Imports "Wall" class from file
+from bat import Bat, ControlScheme  # Imports "Bat" and "ControlScheme" classes from file
+from ball import Ball  # Imports "Ball" class from file
+from score import Score  # Imports "Score" class from file
 
 
 class Game:
@@ -15,18 +19,21 @@ class Game:
         self.screen = pygame.display.set_mode((800, 600))
         self.running = True
         self.clock = pygame.time.Clock()
-        self.walls = [Wall((10, 10), 780, 10), Wall((10, 580), 780, 10)]
-        control_scheme_1 = ControlScheme()
-        control_scheme_1.up = pygame.K_w
-        control_scheme_1.down = pygame.K_s
-        control_scheme_2 = ControlScheme()
-        control_scheme_2.up = pygame.K_UP
-        control_scheme_2.down = pygame.K_DOWN
-        self.bats = [Bat((10, 200), 10, 100, control_scheme_1), Bat((780, 200), 10, 100, control_scheme_2)]
+        self.walls = [Wall((10, 10), 780, 10), Wall((10, 580), 780, 10)]  # Position and dimensions of walls
         self.background = pygame.Surface((800, 600))
         self.background.fill(pygame.Color("#000000"))
         self.ball = Ball((400, 300))
         self.font = pygame.font.Font(None, 50) 
+
+        control_scheme_1 = ControlScheme()
+        control_scheme_1.up = pygame.K_w
+        control_scheme_1.down = pygame.K_s
+
+        control_scheme_2 = ControlScheme()
+        control_scheme_2.up = pygame.K_UP
+        control_scheme_2.down = pygame.K_DOWN
+
+        self.bats = [Bat((10, 200), 10, 100, control_scheme_1), Bat((780, 200), 10, 100, control_scheme_2)]  # Position and dimensions of paddles, their respective control schemes
         self.score = Score(self.font)
 
     def run(self):
